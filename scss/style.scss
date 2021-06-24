@@ -1,0 +1,177 @@
+$color-activelink: #3A7BFD;
+$color-gradient: linear-gradient(#57DDFF to #C058F3);
+$color-white: white;
+$color-lighttheme-extralightgrey: #fafafa;
+$color-lighttheme-extralightgreyblue: #E4E5F1;
+$color-lighttheme-lightgreyblue: #D2D3DB;
+$color-lighttheme-darkgreyblue: #9394A5;
+$color-lighttheme-extradarkgreyblue: #484B6A;
+$color-darktheme-extradarkblue: #161722;
+$color-darktheme-extradarkdesatblue: #25273C;
+$color-darktheme-lightgreyblue: #CACDE8;
+$color-darktheme-lightgreyblue_hover: #E4E5F1;
+$color-darktheme-darkgreyblue: #777A92;
+$color-darktheme-extradarkgreyblue: #4D5066;
+$color-darktheme-extradarkgreyblue_2: #393A4C;
+
+// ------------------- GLOBAL STYLES ------------------- 
+
+:root {
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: top center / contain url('../images/bg-mobile-light.jpg') no-repeat;
+    background-color: $color-lighttheme-extralightgrey;
+    height: 100vh;
+    padding: 0 1.5rem;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+// ------------------- HEADER -------------------
+
+.header {
+    display: flex;   
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.header__title {
+    text-transform: uppercase;
+    color: $color-white;
+    font-weight: bold;
+    letter-spacing: .5rem;
+    font-size: 1.5rem;
+}
+
+.header__themetoggler {
+    transform: scale(.8);
+}
+
+// ------------------- MAIN -------------------
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 1rem;
+}
+
+// ------------------- MAIN -------------------
+// NewTodo input
+
+.main__newtodo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #484B6A;
+    border-radius: .5rem;
+}
+
+#new-todo {
+    border: none;
+    width: 100%;
+}
+
+
+// ------------------- MAIN -------------------
+// ToDoList
+
+.main__todolist {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border-radius: .5rem;
+}
+
+// ToDoList
+// Item
+
+.main__todolist__item {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-white;
+    padding: 1rem;
+    box-shadow: 0 10px 1rem $color-lighttheme-lightgreyblue;
+}
+
+.main__checker {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid $color-darktheme-extradarkblue;
+    border-radius: 1rem;
+}
+
+.main__todolist__item--content {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .7rem;
+    color: $color-lighttheme-extradarkgreyblue;
+}
+
+.main__todolist__item--delete {    
+    transform: scale(.7);
+
+}
+
+// ------------------- MAIN -------------------
+// ToDoList
+// Footer
+
+.main__todolist__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: .6rem;
+    color: $color-lighttheme-darkgreyblue;
+    background-color: $color-white;
+}
+
+
+// ------------------- MAIN -------------------
+// Filter
+// Mobile version
+
+.main__mobilefilter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    width: 100%;
+    background-color: $color-white;
+    font-size: .8rem;
+    font-weight: bold;
+    color: $color-lighttheme-darkgreyblue;
+    border-radius: .5rem;
+}
+
+
+// ------------------- MAIN -------------------
+// Drag and drop line
+
+.main__draganddrop {
+    margin: auto;
+    font-size: .8rem;
+    color: $color-lighttheme-darkgreyblue;
+}
+
+
+
+// ------------------- OTHERS -------------------
+
+.hidden {
+    display: none;
+}
