@@ -14,7 +14,7 @@ $color-darktheme-darkgreyblue: #777A92;
 $color-darktheme-extradarkgreyblue: #4D5066;
 $color-darktheme-extradarkgreyblue_2: #393A4C;
 
-// ------------------- GLOBAL STYLES ------------------- 
+// ------------------- GLOBAL STYLES -------------------
 
 :root {
     font-size: 18px;
@@ -25,24 +25,24 @@ $color-darktheme-extradarkgreyblue_2: #393A4C;
 body {
     background: top center / contain url('../images/bg-mobile-light.jpg') no-repeat;
     background-color: $color-lighttheme-extralightgrey;
-    height: 100vh;
-    padding: 0 1.5rem;
+    padding: 0 1.3rem;
 }
 
 #container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
     height: 100%;
 }
 
 // ------------------- HEADER -------------------
 
 .header {
-    display: flex;   
-    justify-content: space-between; 
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+    padding: 2.5rem 0;
 }
 
 .header__title {
@@ -74,61 +74,66 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
-    background-color: #484B6A;
+    padding: .8rem 1rem;
+    background-color: $color-white;
     border-radius: .5rem;
+}
+
+.checker {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid $color-lighttheme-extralightgreyblue;
+    border-radius: 1rem;
 }
 
 #new-todo {
     border: none;
     width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    color: $color-lighttheme-extradarkgreyblue;
+    &:focus {
+        outline: none;
+    }
 }
 
-
 // ------------------- MAIN -------------------
-// ToDoList
+// 2DoList
 
 .main__todolist {
     display: flex;
     flex-direction: column;
-    gap: 1px;
     border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
 }
 
-// ToDoList
+// 2DoList
 // Item
 
 .main__todolist__item {
     display: flex;
     justify-content: space-between;
     background-color: $color-white;
-    padding: 1rem;
-    box-shadow: 0 10px 1rem $color-lighttheme-lightgreyblue;
-}
-
-.main__checker {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid $color-darktheme-extradarkblue;
-    border-radius: 1rem;
+    padding: .8rem 1rem;
+    border-bottom: 1px solid $color-lighttheme-extralightgreyblue;
 }
 
 .main__todolist__item--content {
     display: flex;
     align-items: center;
     gap: .6rem;
-    font-size: .7rem;
+    font-size: .6rem;
     color: $color-lighttheme-extradarkgreyblue;
 }
 
-.main__todolist__item--delete {    
+.main__todolist__item--delete {
     transform: scale(.7);
 
 }
 
 // ------------------- MAIN -------------------
-// ToDoList
+// 2DoList
 // Footer
 
 .main__todolist__footer {
@@ -156,6 +161,10 @@ body {
     font-weight: bold;
     color: $color-lighttheme-darkgreyblue;
     border-radius: .5rem;
+    box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
+    & li {
+        cursor: pointer;
+    }
 }
 
 
@@ -166,9 +175,8 @@ body {
     margin: auto;
     font-size: .8rem;
     color: $color-lighttheme-darkgreyblue;
+    padding-top: 2rem;
 }
-
-
 
 // ------------------- OTHERS -------------------
 

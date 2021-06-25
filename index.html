@@ -8,27 +8,26 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Todo app</title>
 </head>
 
 <body>
   <div id="container">
     <header class="header">
-      <h1 class="header__title">todo</h1>
-      <svg xmlns="http://www.w3.org/2000/svg" class="header__themetoggler" width="26" height="26"><path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>
+        <h1 class="header__title">todo</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" class="header__themetoggler" width="26" height="26"><path fill="#FFF" fill-rule="evenodd" d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"/></svg>
     </header>
 
     <main class="main">
       <form action="" method="post" class="main__newtodo">
-        <label for="new-todo"><div class="main__checker"></div></label>
+        <label for="new-todo"><div class="checker"></div></label>
         <input type="text" name="new-todo" id="new-todo" placeholder="Create a new todo...">
       </form>
-
       <section class="main__todolist">
         <div class="main__todolist__item">
           <p class="main__todolist__item--content">
-            <span class="main__checker"></span>
+            <span class="checker"></span>
             Jog around the park
           </p>
           <svg class="main__todolist__item--delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
@@ -36,7 +35,7 @@
 
         <div class="main__todolist__item">
           <p class="main__todolist__item--content">
-            <span class="main__checker"></span>
+            <span class="checker"></span>
             10 minutes meditation
           </p>
           <svg class="main__todolist__item--delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
@@ -44,7 +43,7 @@
 
         <div class="main__todolist__item">
           <p class="main__todolist__item--content">
-            <span class="main__checker"></span>
+            <span class="checker"></span>
             Read for 1 hour
           </p>
           <svg class="main__todolist__item--delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
@@ -52,7 +51,7 @@
 
         <div class="main__todolist__item">
           <p class="main__todolist__item--content">
-            <span class="main__checker"></span>
+            <span class="checker"></span>
             Pick up groceries
           </p>
           <svg class="main__todolist__item--delete" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
@@ -62,20 +61,20 @@
           <span class="main__todolist__footer__itemscounter">
             <span class="dynamic--itemscounter">4</span> items left
           </span>
-          <div class="main__todolist__footer__filter hidden">
-            <span class="main__todolist__footer__filter--all">All</span>
-            <span class="main__todolist__footer__filter--active">Active</span>
-            <span class="main__todolist__footer__filter--completed">Completed</span>
-          </div>
+          <ul class="main__todolist__footer__filter hidden">
+            <li class="main__todolist__footer__filter--all">All</li>
+            <li class="main__todolist__footer__filter--active">Active</li>
+            <li class="main__todolist__footer__filter--completed">Completed</li>
+          </ul>
           <span class="main__todolist__footer__clear">Clear Completed</span>
-        </footer>        
+        </footer>
       </section>
 
-      <div class="main__mobilefilter">
-        <span class="main__todolist__footer__filter--all">All</span>
-        <span class="main__todolist__footer__filter--active">Active</span>
-        <span class="main__todolist__footer__filter--completed">Completed</span>
-      </div>
+      <ul class="main__mobilefilter">
+        <li class="main__todolist__footer__filter--all">All</li>
+        <li class="main__todolist__footer__filter--active">Active</li>
+        <li class="main__todolist__footer__filter--completed">Completed</li>
+      </ul>
       <p class="main__draganddrop">Drag and drop to reorder list</div>
     </main>
   </div>
