@@ -1,5 +1,5 @@
 $color-activelink: #3A7BFD;
-$color-gradient: linear-gradient(#57DDFF to #C058F3);
+$color-gradient: linear-gradient(135deg, #57ddff, #c058f3);
 $color-white: white;
 $color-lighttheme-extralightgrey: #fafafa;
 $color-lighttheme-extralightgreyblue: #E4E5F1;
@@ -81,10 +81,27 @@ body {
 
 .checker {
     display: block;
-    width: 1rem;
-    height: 1rem;
-    border: 1px solid $color-lighttheme-extralightgreyblue;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: $color-lighttheme-extralightgreyblue;
     border-radius: 1rem;
+    transition: background .5s ease;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        bottom: 1px;
+        left: 1px;
+        border-radius: 1rem;
+        background: $color-white;
+    }
+    &:hover {
+        border: none;
+        background: $color-gradient;
+        animation: checkerRotate 1s linear infinite;
+    }
 }
 
 #new-todo {
@@ -117,6 +134,7 @@ body {
     background-color: $color-white;
     padding: .8rem 1rem;
     border-bottom: 1px solid $color-lighttheme-extralightgreyblue;
+    cursor: pointer;
 }
 
 .main__todolist__item--content {
@@ -129,7 +147,6 @@ body {
 
 .main__todolist__item--delete {
     transform: scale(.7);
-
 }
 
 // ------------------- MAIN -------------------
@@ -143,6 +160,20 @@ body {
     font-size: .6rem;
     color: $color-lighttheme-darkgreyblue;
     background-color: $color-white;
+}
+
+.main__todolist__footer__filter__element {
+    cursor: pointer;
+    &:hover {
+        color: $color-lighttheme-extradarkgreyblue;
+    }
+}
+
+.main__todolist__footer__clear {
+    cursor: pointer;
+    &:hover {
+        color: $color-lighttheme-extradarkgreyblue;
+    }
 }
 
 
@@ -182,4 +213,14 @@ body {
 
 .hidden {
     display: none;
+}
+
+// ------------------- ANIMATIONS -------------------
+
+@keyframes checkerRotate {
+    from {
+        transform: rotate(0);
+    } to {
+        transform: rotate(360deg);
+    }
 }

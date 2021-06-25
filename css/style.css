@@ -82,10 +82,31 @@ body {
 
 .checker {
   display: block;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #E4E5F1;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: #E4E5F1;
   border-radius: 1rem;
+  -webkit-transition: background .5s ease;
+  transition: background .5s ease;
+}
+
+.checker::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  border-radius: 1rem;
+  background: white;
+}
+
+.checker:hover {
+  border: none;
+  background: linear-gradient(135deg, #57ddff, #c058f3);
+  -webkit-animation: checkerRotate 1s linear infinite;
+          animation: checkerRotate 1s linear infinite;
 }
 
 #new-todo {
@@ -123,6 +144,7 @@ body {
   background-color: white;
   padding: .8rem 1rem;
   border-bottom: 1px solid #E4E5F1;
+  cursor: pointer;
 }
 
 .main__todolist__item--content {
@@ -153,6 +175,22 @@ body {
   font-size: .6rem;
   color: #9394A5;
   background-color: white;
+}
+
+.main__todolist__footer__filter__element {
+  cursor: pointer;
+}
+
+.main__todolist__footer__filter__element:hover {
+  color: #484B6A;
+}
+
+.main__todolist__footer__clear {
+  cursor: pointer;
+}
+
+.main__todolist__footer__clear:hover {
+  color: #484B6A;
 }
 
 .main__mobilefilter {
@@ -187,5 +225,27 @@ body {
 
 .hidden {
   display: none;
+}
+
+@-webkit-keyframes checkerRotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes checkerRotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */
