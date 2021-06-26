@@ -98,9 +98,27 @@ body {
         background: $color-white;
     }
     &:hover {
-        border: none;
         background: $color-gradient;
         animation: checkerRotate 1s linear infinite;
+    }
+}
+
+.checker--completed {
+    background: $color-gradient;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before {
+        content: url('../images/icon-check.svg');
+        top: unset;
+        right: unset;
+        bottom: unset;
+        left: unset;
+        background: none;
+    }
+    &:hover {
+        background: $color-gradient;
+        animation: none;
     }
 }
 
@@ -137,15 +155,23 @@ body {
     cursor: pointer;
 }
 
-.main__todolist__item--content {
+.main__todolist__item__contentblock {
     display: flex;
     align-items: center;
     gap: .6rem;
     font-size: .6rem;
+}
+
+.main__todolist__item__contentblock__content {
     color: $color-lighttheme-extradarkgreyblue;
 }
 
-.main__todolist__item--delete {
+.main__todolist__item__contentblock__content--completed {
+    text-decoration: line-through;
+    color: $color-lighttheme-darkgreyblue;
+}
+
+.main__todolist__item__delete {
     transform: scale(.7);
 }
 
