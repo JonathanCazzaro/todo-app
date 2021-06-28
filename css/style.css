@@ -262,6 +262,14 @@ body {
   display: none;
 }
 
+.selected {
+  color: #3A7BFD;
+}
+
+.selected:hover {
+  color: #3A7BFD;
+}
+
 @-webkit-keyframes checkerRotate {
   from {
     -webkit-transform: rotate(0);

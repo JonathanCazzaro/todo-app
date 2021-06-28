@@ -1,9 +1,5 @@
 const app = {
 
-    locals: {
-        itemsCounter: 0,
-    },
-        
     buildNewTodos: () => {
         // Let's first listen to the input
         app.input.addEventListener('keypress', event => {
@@ -21,7 +17,7 @@ const app = {
                     // Then create the structure of the Todo
                     event.originalTarget.value = '';
                     const todoItem = document.createElement('div');
-                    todoItem.classList.add('main__todolist__item');
+                    todoItem.classList.add('main__todolist__item', 'active');
                     const contentBlock = document.createElement('div');
                     contentBlock.classList.add('main__todolist__item__contentblock');
                     const checker = document.createElement('span');
@@ -32,8 +28,8 @@ const app = {
                     const deleteButton = document.createElement('img');
                     deleteButton.classList.add('main__todolist__item__delete');
                     deleteButton.src = './images/icon-cross.svg';
-                    deleteButton.alt = '';     
-                    // Listen to click on the check button               
+                    deleteButton.alt = '';
+                    // Listen to click on the check button
                     app.switchTodoState(todoItem, checker, itemContent);
                     // Listen to click on the delete button
                     app.itemDelete(deleteButton);
@@ -42,23 +38,23 @@ const app = {
                     todoItem.appendChild(contentBlock);
                     todoItem.appendChild(deleteButton);
                     app.todoContainer.appendChild(todoItem);
-                    app.locals.itemsCounter++; // increment item counter
                 };
                 app.setItemsCounter();
             };
         })
     },
-    
+
     itemDelete: button => {
         button.addEventListener('click', event => {
             button.parentElement.remove();
-            app.locals.itemsCounter--; // decrement item counter
             app.setItemsCounter(); // reset item counter
         });
     },
 
     setItemsCounter: () => {
-        app.itemsCounter.textContent = app.locals.itemsCounter;
+        let quantity = document.querySelectorAll('.active').length;
+        app.itemsCounter.textContent = `${quantity} ${quantity <= 1 ? "item" : "items"} left`;
+        // app.itemsCounter.textContent = app.locals.itemsCounter;
     },
 
 
@@ -68,38 +64,66 @@ const app = {
             button.classList.toggle('checker--completed');
             // switch item content to completed state
             text.classList.toggle('main__todolist__item__contentblock__content--completed');
-            item.classList.toggle('completed');
+            if (item.classList.contains('active')) item.classList.replace('active', 'completed')
+            else item.classList.replace('completed', 'active');
+            app.setItemsCounter(); // reset item counter
         });
     },
 
-    getItemsByState: () => { // ATTENTION IL Y A DEUX OCCURRENCES DES BOUTONS DANS LA PAGE
-        console.log(app.buttonAll);
-        app.buttonAll.addEventListener('click', event => {
-            const items = document.querySelectorAll('.main__todolist__item');
-            items.forEach(item => {
-                if (item.classList.contains('completed hidden')) item.classList.remove('hidden');                
-            })            
-        });
-        app.buttonActive.addEventListener('click', event => {
-            console.log('ok');
-            const items = document.querySelectorAll('.main__todolist__item');
-            items.forEach(item => {
-                if (item.classList.contains('completed')) item.classList.add('hidden');
+    getItemsByState: () => {
+        app.selectButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                const items = document.querySelectorAll('.main__todolist__item');
+                let buttonType = event.target.className;
+                if (buttonType.includes('selected')) buttonType = buttonType.substring(0, buttonType.lastIndexOf(" ")); // Parse string to exclude 'selected" class
+                app.selectButtons.forEach(button => button.classList.remove('selected')); // reset buttons active style
+                button.classList.add('selected'); // set active style to triggered button
+                switch (buttonType) {
+                    case 'main__todolist__footer__filter__element all--elements' :
+                        items.forEach(item => item.classList.remove('hidden'));
+                        button.classList.add('selected')
+                        break;
+                    case 'main__todolist__footer__filter__element active--elements' :
+                        items.forEach(item => {
+                            if (item.classList.contains('completed')) {
+                                item.classList.add('hidden');
+                            } else {
+                                item.classList.remove('hidden');
+                            };
+                        });
+                        break;
+                    case 'main__todolist__footer__filter__element completed--elements' :
+                        items.forEach(item => {
+                            if (item.classList.contains('completed')) {
+                                item.classList.remove('hidden');
+                            } else {
+                                item.classList.add('hidden');
+                            };
+                        });
+                        break;
+                };
             });
         });
     },
-    
-    
+
+    clearCompleted: () => {
+        app.clearButton.addEventListener('click', event => {
+            const completedItems = document.querySelectorAll('.completed');
+            completedItems.forEach(item => item.remove());
+        });
+    },
+
+
     init: () => {
         app.input = document.querySelector('#new-todo');
         app.todoContainer = document.querySelector('.main__todolist__itemscontainer');
-        app.itemsCounter = document.querySelector('.dynamic--itemscounter');
-        app.buttonCompleted = document.querySelector('.completed--elements');
-        app.buttonActive = document.querySelector('.active--elements');
-        app.buttonAll = document.querySelector('.all--elements');
+        app.itemsCounter = document.querySelector('.main__todolist__footer__itemscounter');
+        app.selectButtons = document.querySelectorAll('ul.main__mobilefilter .main__todolist__footer__filter__element');
+        app.clearButton = document.querySelector('.main__todolist__footer__clear');
         app.buildNewTodos();
         app.setItemsCounter();
         app.getItemsByState();
+        app.clearCompleted();
     }
 }
 

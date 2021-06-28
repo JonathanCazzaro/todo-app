@@ -241,6 +241,13 @@ body {
     display: none;
 }
 
+.selected {
+    color: $color-activelink;
+    &:hover {
+        color: $color-activelink;
+    }
+}
+
 // ------------------- ANIMATIONS -------------------
 
 @keyframes checkerRotate {
