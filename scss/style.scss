@@ -197,6 +197,7 @@ body {
 
 .main__todolist__footer__clear {
     cursor: pointer;
+    user-select: none;
     &:hover {
         color: $color-lighttheme-extradarkgreyblue;
     }
@@ -216,6 +217,7 @@ body {
     background-color: $color-white;
     font-size: .8rem;
     font-weight: bold;
+    user-select: none;
     color: $color-lighttheme-darkgreyblue;
     border-radius: .5rem;
     box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
