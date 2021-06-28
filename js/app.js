@@ -22,6 +22,8 @@ const app = {
                     event.originalTarget.value = '';
                     const todoItem = document.createElement('div');
                     todoItem.classList.add('main__todolist__item', 'active');
+                    todoItem.draggable = true;
+                    app.itemDragAndDrop(todoItem);
                     const contentBlock = document.createElement('div');
                     contentBlock.classList.add('main__todolist__item__contentblock');
                     const checker = document.createElement('span');
@@ -47,6 +49,28 @@ const app = {
                 app.showItemsByState(app.global.currentlyActiveFilter); // Set items visibility according to current filter
             };
         })
+    },
+
+    itemDragAndDrop: item => {
+        item.addEventListener('dragstart', event => {
+            item.style.opacity = '.4';
+            event.dataTransfer.effectAllowed = 'move';
+            
+        }, false);
+        item.addEventListener('dragenter', event => {
+            item.classList.add('hover-item');
+        }, false);
+        item.addEventListener('dragleave', event => {
+            item.classList.remove('hover-item');
+        }, false);
+        item.addEventListener('dragend', event => {
+            item.style.opacity = '1';
+            document.querySelectorAll('.main__todolist__item').forEach(item => item.classList.remove('hover-item'));
+        }, false);
+        item.addEventListener('drop'), event => {
+            event.stopPropagation();
+
+        }
     },
 
     itemDelete: button => {

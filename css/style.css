@@ -199,6 +199,10 @@ body {
           transform: scale(0.7);
 }
 
+.hover-item {
+  border: 3px dotted #D2D3DB;
+}
+
 .main__todolist__footer {
   display: -webkit-box;
   display: -ms-flexbox;
