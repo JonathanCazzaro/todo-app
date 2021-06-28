@@ -126,6 +126,7 @@ body {
     border: none;
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
+    background-color: transparent;
     color: $color-lighttheme-extradarkgreyblue;
     &:focus {
         outline: none;
@@ -175,12 +176,8 @@ body {
     transform: scale(.7);
 }
 
-// 2DoList
-// Item
-// Drag and drop styles
-
-.hover-item {
-    border: 3px dotted $color-lighttheme-lightgreyblue;
+.ghost {
+    background-color: $color-lighttheme-lightgreyblue;
 }
 
 // ------------------- MAIN -------------------
@@ -234,15 +231,24 @@ body {
     }
 }
 
-
 // ------------------- MAIN -------------------
-// Drag and drop line
+// Drag and drop advice line
 
 .main__draganddrop {
     margin: auto;
     font-size: .8rem;
     color: $color-lighttheme-darkgreyblue;
     padding-top: 2rem;
+}
+
+// ------------------- DARK THEME -------------------
+
+.body-darktheme {
+    background: top center / contain url('../images/bg-mobile-dark.jpg') no-repeat;
+}
+
+.elementsbackground-darktheme {
+    background-color: $color-darktheme-extradarkdesatblue;
 }
 
 // ------------------- OTHERS -------------------

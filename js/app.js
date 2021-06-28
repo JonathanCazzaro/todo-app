@@ -51,26 +51,12 @@ const app = {
         })
     },
 
-    itemDragAndDrop: item => {
-        item.addEventListener('dragstart', event => {
-            item.style.opacity = '.4';
-            event.dataTransfer.effectAllowed = 'move';
-            
-        }, false);
-        item.addEventListener('dragenter', event => {
-            item.classList.add('hover-item');
-        }, false);
-        item.addEventListener('dragleave', event => {
-            item.classList.remove('hover-item');
-        }, false);
-        item.addEventListener('dragend', event => {
-            item.style.opacity = '1';
-            document.querySelectorAll('.main__todolist__item').forEach(item => item.classList.remove('hover-item'));
-        }, false);
-        item.addEventListener('drop'), event => {
-            event.stopPropagation();
-
-        }
+    itemDragAndDrop: itemContainer => {
+        Sortable.create(itemContainer, {
+            swap: true,
+            swapClass: 'ghost',
+            animation: 300
+        });
     },
 
     itemDelete: button => {
@@ -129,16 +115,30 @@ const app = {
         });
     },
 
+    switchTheme: button => {
+        button.addEventListener('click', event => {
+            if (button.src.includes('icon-moon')) button.src = './images/icon-sun.svg';
+            else button.src = './images/icon-moon.svg';
+            document.body.classList.toggle('body-darktheme');
+            document.querySelectorAll('.main__todolist__item, .main__newtodo, .main__todolist__footer, .main__mobilefilter').forEach(item => item.classList.toggle('elementsbackground-darktheme'));
+        });
+    },
+
     init: () => {
         app.input = document.querySelector('#new-todo');
+        app.inputBlock = document.querySelector('.main__newtodo');
         app.todoContainer = document.querySelector('.main__todolist__itemscontainer');
+        app.todoListFooter = document.querySelector('.main__todolist__footer');
         app.itemsCounter = document.querySelector('.main__todolist__footer__itemscounter');
         app.selectButtons = document.querySelectorAll('ul.main__mobilefilter .main__todolist__footer__filter__element');
         app.clearButton = document.querySelector('.main__todolist__footer__clear');
+        app.themeToggler = document.querySelector('.header__themetoggler');
         app.buildNewTodos();
         app.setItemsCounter();
         app.stateButtonsLogic();
         app.clearCompleted();
+        app.itemDragAndDrop(app.todoContainer);
+        app.switchTheme(app.themeToggler);
     }
 }
 
