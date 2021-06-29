@@ -217,23 +217,11 @@ body {
   background-color: white;
 }
 
-.main__todolist__footer__filter__element {
+.main__todolist__footer__filter__element, .main__todolist__footer__clear {
   cursor: pointer;
 }
 
-.main__todolist__footer__filter__element:hover {
-  color: #484B6A;
-}
-
-.main__todolist__footer__clear {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.main__todolist__footer__clear:hover {
+.main__todolist__footer__filter__element:hover, .main__todolist__footer__clear:hover {
   color: #484B6A;
 }
 
@@ -312,4 +300,4 @@ body {
             transform: rotate(360deg);
   }
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style_light.css.map */

@@ -1,0 +1,68 @@
+body {
+  background: top center/contain url("../images/bg-mobile-dark.jpg") no-repeat;
+  background-color: #25273C;
+}
+
+#new-todo {
+  color: #CACDE8;
+}
+
+.main__newtodo {
+  background-color: #25273C;
+}
+
+.checker {
+  background: #4D5066;
+}
+
+.checker::before {
+  background: #25273C;
+}
+
+.checker--completed {
+  background: linear-gradient(135deg, #57ddff, #c058f3);
+}
+
+.checker--completed::before {
+  background: none;
+}
+
+.main__todolist {
+  -webkit-box-shadow: 0 1rem 3rem #161722;
+          box-shadow: 0 1rem 3rem #161722;
+}
+
+.main__todolist__item {
+  background-color: #25273C;
+  border-bottom: 1px solid #393A4C;
+}
+
+.main__todolist__item__contentblock__content {
+  color: #CACDE8;
+  font-weight: bold;
+}
+
+.main__todolist__item__contentblock__content--completed {
+  color: #4D5066;
+}
+
+.main__todolist__footer {
+  background-color: #25273C;
+  color: #777A92;
+}
+
+.main__todolist__footer__filter__element:hover, .main__todolist__footer__clear:hover {
+  color: #CACDE8;
+}
+
+.main__mobilefilter {
+  color: #777A92;
+  background-color: #25273C;
+  -webkit-box-shadow: 0 1rem 3rem #161722;
+          box-shadow: 0 1rem 3rem #161722;
+}
+
+.main__draganddrop {
+  color: #777A92;
+}
+/*# sourceMappingURL=style_dark.css.map */

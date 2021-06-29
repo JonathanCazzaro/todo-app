@@ -193,21 +193,12 @@ body {
     background-color: $color-white;
 }
 
-.main__todolist__footer__filter__element {
+.main__todolist__footer__filter__element, .main__todolist__footer__clear {
     cursor: pointer;
     &:hover {
         color: $color-lighttheme-extradarkgreyblue;
     }
 }
-
-.main__todolist__footer__clear {
-    cursor: pointer;
-    user-select: none;
-    &:hover {
-        color: $color-lighttheme-extradarkgreyblue;
-    }
-}
-
 
 // ------------------- MAIN -------------------
 // Filter

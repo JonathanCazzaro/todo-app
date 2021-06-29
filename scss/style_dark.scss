@@ -1,0 +1,99 @@
+$color-activelink: #3A7BFD;
+$color-gradient: linear-gradient(135deg, #57ddff, #c058f3);
+$color-white: white;
+$color-darktheme-extradarkblue: #161722;
+$color-darktheme-extradarkdesatblue: #25273C;
+$color-darktheme-lightgreyblue: #CACDE8;
+$color-darktheme-lightgreyblue_hover: #E4E5F1;
+$color-darktheme-darkgreyblue: #777A92;
+$color-darktheme-extradarkgreyblue: #4D5066;
+$color-darktheme-extradarkgreyblue_2: #393A4C;
+
+// ------------------- GLOBAL STYLES -------------------
+
+
+body {
+    background: top center / contain url('../images/bg-mobile-dark.jpg') no-repeat;
+    background-color: $color-darktheme-extradarkdesatblue;
+}
+
+// ------------------- MAIN -------------------
+// NewTodo input
+
+#new-todo {
+    color: $color-darktheme-lightgreyblue;
+}
+
+.main__newtodo {
+    background-color: $color-darktheme-extradarkdesatblue;
+}
+
+.checker {
+    background: $color-darktheme-extradarkgreyblue;
+    &::before {
+    background: $color-darktheme-extradarkdesatblue;
+    }
+}
+
+.checker--completed {
+    background: $color-gradient;
+    &::before {
+        background: none;
+    }
+}
+
+// ------------------- MAIN -------------------
+// 2DoList
+
+.main__todolist {
+    box-shadow: 0 1rem 3rem $color-darktheme-extradarkblue;
+}
+
+// ------------------- MAIN -------------------
+// 2DoList
+// Item
+
+.main__todolist__item {
+    background-color: $color-darktheme-extradarkdesatblue;
+    border-bottom: 1px solid $color-darktheme-extradarkgreyblue_2;
+}
+
+.main__todolist__item__contentblock__content {
+    color: $color-darktheme-lightgreyblue;
+    font-weight: bold;
+}
+
+.main__todolist__item__contentblock__content--completed {
+    color: $color-darktheme-extradarkgreyblue;
+}
+
+// ------------------- MAIN -------------------
+// 2DoList
+// Footer
+
+.main__todolist__footer {
+    background-color: $color-darktheme-extradarkdesatblue;
+    color: $color-darktheme-darkgreyblue;
+}
+
+.main__todolist__footer__filter__element:hover, .main__todolist__footer__clear:hover {
+        color: $color-darktheme-lightgreyblue;
+}
+
+// ------------------- MAIN -------------------
+// Filter
+// Mobile version
+
+.main__mobilefilter {
+    color: $color-darktheme-darkgreyblue;
+    background-color: $color-darktheme-extradarkdesatblue;
+    box-shadow: 0 1rem 3rem $color-darktheme-extradarkblue;
+}
+
+// ------------------- MAIN -------------------
+// Drag and drop advice line
+
+.main__draganddrop {
+    color: $color-darktheme-darkgreyblue;
+
+}

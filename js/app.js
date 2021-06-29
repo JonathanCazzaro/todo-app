@@ -1,7 +1,8 @@
 const app = {
 
     global: {
-        currentlyActiveFilter: 'all'
+        currentlyActiveFilter: 'all',
+        activeTheme: 'light'
     },
 
     buildNewTodos: () => {
@@ -47,6 +48,7 @@ const app = {
                 };
                 app.setItemsCounter(); // Reset counter after item pop
                 app.showItemsByState(app.global.currentlyActiveFilter); // Set items visibility according to current filter
+                app.switchTheme(); // set new TODO to active theme
             };
         })
     },
@@ -115,12 +117,34 @@ const app = {
         });
     },
 
-    switchTheme: button => {
+    switchTheme: () => {
+        const darkThemeCSS = document.querySelector('#dark_theme');
+        switch (app.global.activeTheme) {
+            case 'light':
+                if (darkThemeCSS) darkThemeCSS.remove();
+                break;
+            case 'dark':
+                if (!darkThemeCSS) {
+                    const cssLink = document.createElement('link');
+                    cssLink.rel = 'stylesheet';
+                    cssLink.href = './css/style_dark.css';
+                    cssLink.id = 'dark_theme';
+                    app.head.appendChild(cssLink);
+                };
+                break;
+        };
+    },
+
+    switchThemeToggle: button => {
         button.addEventListener('click', event => {
-            if (button.src.includes('icon-moon')) button.src = './images/icon-sun.svg';
-            else button.src = './images/icon-moon.svg';
-            document.body.classList.toggle('body-darktheme');
-            document.querySelectorAll('.main__todolist__item, .main__newtodo, .main__todolist__footer, .main__mobilefilter').forEach(item => item.classList.toggle('elementsbackground-darktheme'));
+            if (button.src.includes('icon-moon')) {
+                button.src = './images/icon-sun.svg';
+                app.global.activeTheme = 'dark';
+            } else {
+                button.src = './images/icon-moon.svg';
+                app.global.activeTheme = 'light';
+            };
+            app.switchTheme();
         });
     },
 
@@ -133,12 +157,14 @@ const app = {
         app.selectButtons = document.querySelectorAll('ul.main__mobilefilter .main__todolist__footer__filter__element');
         app.clearButton = document.querySelector('.main__todolist__footer__clear');
         app.themeToggler = document.querySelector('.header__themetoggler');
+        app.head = document.querySelector('head');
+
         app.buildNewTodos();
         app.setItemsCounter();
         app.stateButtonsLogic();
         app.clearCompleted();
         app.itemDragAndDrop(app.todoContainer);
-        app.switchTheme(app.themeToggler);
+        app.switchThemeToggle(app.themeToggler);
     }
 }
 
