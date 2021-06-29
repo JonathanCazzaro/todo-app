@@ -203,10 +203,6 @@ body {
     }
 }
 
-// ------------------- MAIN -------------------
-// Filter
-// Mobile version
-
 .main__todolist__footer__filter {
     display: flex;
     justify-content: center;
@@ -221,23 +217,9 @@ body {
     }
 }
 
-// .main__mobilefilter {
-//     display: flex;
-//     justify-content: center;
-//     gap: 1rem;
-//     padding: 1rem 0;
-//     width: 100%;
-//     background-color: $color-white;
-//     font-size: .8rem;
-//     font-weight: bold;
-//     user-select: none;
-//     color: $color-lighttheme-darkgreyblue;
-//     border-radius: .5rem;
-//     box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
-//     & li {
-//         cursor: pointer;
-//     }
-// }
+.main__todolist__footer__itemscounter, .main__todolist__footer__clear {
+    flex-basis: 25%;
+}
 
 // ------------------- MAIN -------------------
 // Drag and drop advice line
@@ -305,6 +287,10 @@ body {
         & li {
             cursor: pointer;
         }
+    }
+
+    .main__todolist__footer__itemscounter, .main__todolist__footer__clear {
+        flex-basis: unset;
     }
 }
 

@@ -249,6 +249,11 @@ body {
   cursor: pointer;
 }
 
+.main__todolist__footer__itemscounter, .main__todolist__footer__clear {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+
 .main__draganddrop {
   margin: auto;
   font-size: .8rem;
@@ -326,6 +331,10 @@ body {
   }
   .main__todolist__footer__filter li {
     cursor: pointer;
+  }
+  .main__todolist__footer__itemscounter, .main__todolist__footer__clear {
+    -ms-flex-preferred-size: unset;
+        flex-basis: unset;
   }
 }
 
