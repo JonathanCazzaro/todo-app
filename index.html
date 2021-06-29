@@ -24,26 +24,19 @@
         <label for="new-todo"><span class="checker"></span></label>
         <input type="text" name="new-todo" id="new-todo" placeholder="Create a new todo...">
       </form>
-      <section class="main__todolist">
+      <div class="main__todolist">
         <div class="main__todolist__itemscontainer"></div>
-
         <footer class="main__todolist__footer">
           <span class="main__todolist__footer__itemscounter"></span>
-          <ul class="main__todolist__footer__filter hidden">
+          <ul class="main__todolist__footer__filter">
             <li class="main__todolist__footer__filter__element all--elements selected">All</li>
             <li class="main__todolist__footer__filter__element active--elements">Active</li>
             <li class="main__todolist__footer__filter__element completed--elements">Completed</li>
           </ul>
           <span class="main__todolist__footer__clear">Clear Completed</span>
         </footer>
-      </section>
-
-      <ul class="main__mobilefilter">
-        <li class="main__todolist__footer__filter__element all--elements selected">All</li>
-        <li class="main__todolist__footer__filter__element active--elements">Active</li>
-        <li class="main__todolist__footer__filter__element completed--elements">Completed</li>
-      </ul>
-      <p class="main__draganddrop">Drag and drop to reorder list</div>
+      </div>
+      <p class="main__draganddrop">Drag and drop to reorder list</p>
     </main>
   </div>
   <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>

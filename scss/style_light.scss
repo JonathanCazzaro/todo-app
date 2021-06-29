@@ -49,8 +49,8 @@ body {
     text-transform: uppercase;
     color: $color-white;
     font-weight: bold;
-    letter-spacing: .5rem;
-    font-size: 1.5rem;
+    letter-spacing: clamp(.5rem, 3vw, .8rem);
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
 }
 
 .header__themetoggler {
@@ -60,6 +60,7 @@ body {
 // ------------------- MAIN -------------------
 
 .main {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -74,16 +75,17 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: .8rem 1rem;
+    padding: clamp(.8rem, 3vw, 1rem) clamp(1rem, 3vw, 1.5rem);
     background-color: $color-white;
-    border-radius: .5rem;
+    // border-radius: .5rem;
+    border-radius: clamp(.25rem, 5vw, .25rem);
 }
 
 .checker {
     display: block;
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: clamp(20px, 3vw, 25px);
+    height: clamp(20px, 3vw, 25px);
     background: $color-lighttheme-extralightgreyblue;
     border-radius: 1rem;
     transition: background .5s ease;
@@ -127,6 +129,7 @@ body {
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
     background-color: transparent;
+    font-size: clamp(.7rem, 3vw, 1rem);
     color: $color-lighttheme-extradarkgreyblue;
     &:focus {
         outline: none;
@@ -139,7 +142,7 @@ body {
 .main__todolist {
     display: flex;
     flex-direction: column;
-    border-radius: .5rem;
+    border-radius: clamp(.25rem, 5vw, .25rem);
     overflow: hidden;
     box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
 }
@@ -151,7 +154,7 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: $color-white;
-    padding: .8rem 1rem;
+    padding: clamp(.8rem, 3vw, 1rem) clamp(1rem, 3vw, 1.5rem);
     border-bottom: 1px solid $color-lighttheme-extralightgreyblue;
     cursor: pointer;
 }
@@ -159,8 +162,8 @@ body {
 .main__todolist__item__contentblock {
     display: flex;
     align-items: center;
-    gap: .6rem;
-    font-size: .6rem;
+    gap: 1rem;
+    font-size: clamp(.6rem, 3vw, 1rem);
 }
 
 .main__todolist__item__contentblock__content {
@@ -188,7 +191,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    font-size: .6rem;
+    font-size: clamp(.6rem, 3vw, .8rem);
     color: $color-lighttheme-darkgreyblue;
     background-color: $color-white;
 }
@@ -204,23 +207,37 @@ body {
 // Filter
 // Mobile version
 
-.main__mobilefilter {
+.main__todolist__footer__filter {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    padding: 1rem 0;
-    width: 100%;
-    background-color: $color-white;
     font-size: .8rem;
     font-weight: bold;
     user-select: none;
     color: $color-lighttheme-darkgreyblue;
     border-radius: .5rem;
-    box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
     & li {
         cursor: pointer;
     }
 }
+
+// .main__mobilefilter {
+//     display: flex;
+//     justify-content: center;
+//     gap: 1rem;
+//     padding: 1rem 0;
+//     width: 100%;
+//     background-color: $color-white;
+//     font-size: .8rem;
+//     font-weight: bold;
+//     user-select: none;
+//     color: $color-lighttheme-darkgreyblue;
+//     border-radius: .5rem;
+//     box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
+//     & li {
+//         cursor: pointer;
+//     }
+// }
 
 // ------------------- MAIN -------------------
 // Drag and drop advice line
@@ -229,7 +246,8 @@ body {
     margin: auto;
     font-size: .8rem;
     color: $color-lighttheme-darkgreyblue;
-    padding-top: 2rem;
+    padding-top: 6rem;
+
 }
 
 // ------------------- DARK THEME -------------------
@@ -264,3 +282,55 @@ body {
         transform: rotate(360deg);
     }
 }
+
+// ------------------- RESPONSIVE RULES -------------------
+
+@media all and (max-width: 583px) {
+    .main__todolist__footer__filter {
+        position: absolute;
+        bottom: 4rem;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        width: 100%;
+        background-color: $color-white;
+        font-size: .8rem;
+        font-weight: bold;
+        user-select: none;
+        color: $color-lighttheme-darkgreyblue;
+        border-radius: clamp(.25rem, 5vw, .25rem);
+        box-shadow: 0 1rem 3rem $color-lighttheme-extralightgreyblue;
+        & li {
+            cursor: pointer;
+        }
+    }
+}
+
+
+@media all and (min-width: 584px) {
+    body {
+        background: top center / cover url('../images/bg-desktop-light.jpg') no-repeat;
+        background-size: 1440px auto;
+    }
+
+    #container {
+        width: #{"max(43%, 550px)"};
+        margin: auto;
+    }
+
+    .header {
+        padding: 4rem 0 2.5rem;
+    }
+
+    .header, .main {
+        width: 90%;
+    }
+
+    .main__draganddrop {
+        padding-top: 2rem;
+
+    }
+}
+

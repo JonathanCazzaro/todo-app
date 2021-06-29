@@ -84,7 +84,7 @@ body {
 // Filter
 // Mobile version
 
-.main__mobilefilter {
+.main__todolist__footer__filter {
     color: $color-darktheme-darkgreyblue;
     background-color: $color-darktheme-extradarkdesatblue;
     box-shadow: 0 1rem 3rem $color-darktheme-extradarkblue;
@@ -97,3 +97,27 @@ body {
     color: $color-darktheme-darkgreyblue;
 
 }
+
+// ------------------- RESPONSIVE RULES -------------------
+
+@media all and (min-width: 584px) {
+    body {
+        background: top center url('../images/bg-desktop-dark.jpg') no-repeat;
+        background-size: 1440px auto;
+        background-color: $color-darktheme-extradarkdesatblue;
+    }
+
+    #container {
+        width: #{"max(43%, 550px)"};
+        margin: auto;
+    }
+
+    .header {
+        padding: 4rem 0 2.5rem;
+    }
+
+    .header, .main {
+        width: 90%;
+    }
+}
+

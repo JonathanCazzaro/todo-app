@@ -55,7 +55,7 @@ body {
   color: #CACDE8;
 }
 
-.main__mobilefilter {
+.main__todolist__footer__filter {
   color: #777A92;
   background-color: #25273C;
   -webkit-box-shadow: 0 1rem 3rem #161722;
@@ -64,5 +64,23 @@ body {
 
 .main__draganddrop {
   color: #777A92;
+}
+
+@media all and (min-width: 584px) {
+  body {
+    background: top center url("../images/bg-desktop-dark.jpg") no-repeat;
+    background-size: 1440px auto;
+    background-color: #25273C;
+  }
+  #container {
+    width: max(43%, 550px);
+    margin: auto;
+  }
+  .header {
+    padding: 4rem 0 2.5rem;
+  }
+  .header, .main {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=style_dark.css.map */
