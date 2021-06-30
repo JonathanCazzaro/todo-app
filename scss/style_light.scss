@@ -75,7 +75,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: clamp(.8rem, 3vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(.3rem, 3vw, .7rem) clamp(1rem, 3vw, 1.5rem);
     background-color: $color-white;
     // border-radius: .5rem;
     border-radius: clamp(.25rem, 5vw, .25rem);
@@ -142,10 +142,12 @@ body {
     cursor: pointer;
     color: $color-lighttheme-darkgreyblue;
     transform: rotate(35deg);
+    padding: 0;
 }
 
 .material-icons-outlined {
     font-size: clamp(1.5rem, 3vw, 2rem);
+    padding: 0;
 }
 
 // ------------------- MAIN -------------------

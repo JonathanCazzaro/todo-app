@@ -76,7 +76,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
-  padding: clamp(0.8rem, 3vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(0.3rem, 3vw, 0.7rem) clamp(1rem, 3vw, 1.5rem);
   background-color: white;
   border-radius: clamp(0.25rem, 5vw, 0.25rem);
 }
@@ -157,10 +157,12 @@ body {
   color: #9394A5;
   -webkit-transform: rotate(35deg);
           transform: rotate(35deg);
+  padding: 0;
 }
 
 .material-icons-outlined {
   font-size: clamp(1.5rem, 3vw, 2rem);
+  padding: 0;
 }
 
 .main__todolist {
