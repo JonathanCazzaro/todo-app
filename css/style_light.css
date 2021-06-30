@@ -150,6 +150,19 @@ body {
   outline: none;
 }
 
+#button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9394A5;
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.material-icons-outlined {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
 .main__todolist {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -221,6 +234,12 @@ body {
 
 .main__todolist__footer__filter__element, .main__todolist__footer__clear {
   cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .main__todolist__footer__filter__element:hover, .main__todolist__footer__clear:hover {

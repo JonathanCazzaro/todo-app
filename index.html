@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
   <link rel="stylesheet" href="./css/style_light.css" id="light_theme">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,10 @@
     <main class="main">
       <form action="/" class="main__newtodo">
         <label for="new-todo"><span class="checker"></span></label>
-        <input type="text" name="new-todo" id="new-todo" placeholder="Create a new todo...">
+        <input type="text" name="new-todo" id="new-todo" placeholder="Create a new todo and pin it...">
+        <button type="submit" id="button"><span class="material-icons-outlined">
+          push_pin
+          </span></button>
       </form>
       <div class="main__todolist">
         <div class="main__todolist__itemscontainer"></div>

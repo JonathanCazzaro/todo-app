@@ -6,50 +6,48 @@ const app = {
     },
 
     buildNewTodos: () => {
-        // Let's first listen to the input
-        app.input.addEventListener('keypress', event => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                const inputContent = event.originalTarget.value;
-                if (!inputContent) { // User cannot create an empty todo
-                    app.input.placeholder = "Nothing to do, huh ?";
-                    app.input.style.color = '#ff423d';
-                    setTimeout(() => {
-                        app.input.placeholder = "Create a new todo...";
-                        app.input.style.color = '';
-                    }, 4000);
-                } else {
-                    // Then create the structure of the Todo
-                    event.originalTarget.value = '';
-                    const todoItem = document.createElement('div');
-                    todoItem.classList.add('main__todolist__item', 'active');
-                    todoItem.draggable = true;
-                    app.itemDragAndDrop(todoItem);
-                    const contentBlock = document.createElement('div');
-                    contentBlock.classList.add('main__todolist__item__contentblock');
-                    const checker = document.createElement('span');
-                    checker.classList.add('checker');
-                    const itemContent = document.createElement('p');
-                    itemContent.classList.add('main__todolist__item__contentblock__content');
-                    itemContent.textContent = inputContent;
-                    const deleteButton = document.createElement('img');
-                    deleteButton.classList.add('main__todolist__item__delete');
-                    deleteButton.src = './images/icon-cross.svg';
-                    deleteButton.alt = '';
-                    // Listen to click on the check button
-                    app.switchTodoState(todoItem, checker, itemContent);
-                    // Listen to click on the delete button
-                    app.itemDelete(deleteButton);
-                    contentBlock.appendChild(checker);
-                    contentBlock.appendChild(itemContent);
-                    todoItem.appendChild(contentBlock);
-                    todoItem.appendChild(deleteButton);
-                    app.todoContainer.appendChild(todoItem);
-                };
-                app.setItemsCounter(); // Reset counter after item pop
-                app.showItemsByState(app.global.currentlyActiveFilter); // Set items visibility according to current filter
-                app.switchTheme(); // set new TODO to active theme
+        // Let's first listen to the click on sendbutton or enter keyboard
+        app.send.addEventListener('click', event => {
+            event.preventDefault();
+            const inputContent = app.input.value;
+            if (!inputContent) { // User cannot create an empty todo
+                app.input.placeholder = "Nothing to do, huh ?";
+                app.input.style.color = '#ff423d';
+                setTimeout(() => {
+                    app.input.placeholder = "Create a new todo and pin it...";
+                    app.input.style.color = '';
+                }, 4000);
+            } else {
+                // Then create the structure of the Todo
+                app.input.value = '';
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('main__todolist__item', 'active');
+                todoItem.draggable = true;
+                app.itemDragAndDrop(todoItem);
+                const contentBlock = document.createElement('div');
+                contentBlock.classList.add('main__todolist__item__contentblock');
+                const checker = document.createElement('span');
+                checker.classList.add('checker');
+                const itemContent = document.createElement('p');
+                itemContent.classList.add('main__todolist__item__contentblock__content');
+                itemContent.textContent = inputContent;
+                const deleteButton = document.createElement('img');
+                deleteButton.classList.add('main__todolist__item__delete');
+                deleteButton.src = './images/icon-cross.svg';
+                deleteButton.alt = '';
+                // Listen to click on the check button
+                app.switchTodoState(todoItem, checker, itemContent);
+                // Listen to click on the delete button
+                app.itemDelete(deleteButton);
+                contentBlock.appendChild(checker);
+                contentBlock.appendChild(itemContent);
+                todoItem.appendChild(contentBlock);
+                todoItem.appendChild(deleteButton);
+                app.todoContainer.appendChild(todoItem);
             };
+            app.setItemsCounter(); // Reset counter after item pop
+            app.showItemsByState(app.global.currentlyActiveFilter); // Set items visibility according to current filter
+            app.switchTheme(); // set new TODO to active theme
         })
     },
 
@@ -150,6 +148,7 @@ const app = {
 
     init: () => {
         app.input = document.querySelector('#new-todo');
+        app.send = document.querySelector('#button');
         app.inputBlock = document.querySelector('.main__newtodo');
         app.todoContainer = document.querySelector('.main__todolist__itemscontainer');
         app.todoListFooter = document.querySelector('.main__todolist__footer');
